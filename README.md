@@ -39,4 +39,16 @@ A few of the detections are shown below:
 
 ![Detections](Screenshots/Detections.jpg)
 
-### Note: Because of the large file size, training checkpoints are not added to the repo. If you need to inference the model, you can use the frozen model checkoints in [saved_model](Sign_Language_detection/training/TF2/training/faster_rcnn_resnet101_v1_1024x1024_coco17_tpu-8/saved_model/saved_model) folder.
+## Note: Because of the large file size, training checkpoints are not added to the repository. You can download pre-traind model from [tf2 model zoo](http://download.tensorflow.org/models/object_detection/tf2/20200711/faster_rcnn_resnet101_v1_1024x1024_coco17_tpu-8.tar.gz) to [pre-trained-models](Sign_Language_detection/training/TF2/pre-trained-models) folder. In the []() folder, add the config file from pretrained models, and edit it at following points:
+
+## - num_classes: 26 
+## - fine_tune_checkpoint: "training/TF2/pre-trained-models/faster_rcnn_resnet101_v1_1024x1024_coco17_tpu-8/checkpoint/ckpt-0"
+## - fine_tune_checkpoint_type: "detection"
+## For train_input_reader
+## - label_map_path: "data/label_map.pbtxt"
+## - input_path: "data/train.record"
+## For test_input_reader
+## - label_map_path: "data/label_map.pbtxt"
+## - input_path: "data/test.record"
+
+## You can contact me if you require any files or any help in general regarding this repo.
